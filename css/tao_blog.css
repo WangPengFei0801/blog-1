@@ -1,0 +1,332 @@
+#top_pic{
+  width: 100%;
+  /*height: 580px;   改为document加载时由jquery动态确定*/
+  /*margin-top: 0px ;*/
+  text-align: center;
+}
+#top_pic img{
+  width: 100%;
+  position: fixed;
+  left:0px;
+  z-index: -3;
+}
+/*一定要把背景的 position: fixed 放在子标签h1中，不然会出bug！！！*/
+#top_pic h1{
+  position: fixed; 
+  z-index: -2;
+  /*  用于在fixed状态下元素居中 */
+  /*margin:0px auto;*/
+  left:0;
+  right:0;
+  color: #ffffff;
+  font: lighter 42px "FangSong", "黑体","Microsoft YaHei","宋体",sans-serif;
+}
+#top_pic h2{
+  position: fixed; 
+  z-index: -2;
+  left:0;
+  right:0;
+  color: #ffffff;
+  font: lighter 93px "KaiTi","FangSong","黑体","Microsoft YaHei","宋体",sans-serif;
+  letter-spacing: 10px;
+}
+#top_bar{
+  width: 100%;
+  height: 60px;
+  /*margin-top: 0px ;*/
+  position: relative;
+  background-color: #E7E8E9;
+  text-align: center;
+  z-index: 10;
+ 
+  background: -webkit-gradient(linear,left,right,from(#CDD0EF),color-stop(0.5,#EBEAF5),to(#CDD0EF));
+  background: -moz-linear-gradient(left, #CDD0EF, #EBEAF5, #CDD0EF);
+  background: -o-linear-gradient(left, #CDD0EF, #EBEAF5, #CDD0EF);
+  background: -webkit-linear-gradient(left, #CDD0EF, #EBEAF5 50%, #CDD0EF); 
+
+  -webkit-box-shadow: 3px 3px 18px #888484;
+  -moz-box-shadow: 3px 3px 18px #888484;
+  box-shadow: 3px 3px 18px #888484;
+}
+/* >选择第一层子元素*/
+#top_bar>span:first-child{
+  position: relative;
+  left: 32%;
+}
+#top_bar>span:nth-of-type(2){
+  position: relative;
+  left: 38.5%;
+}
+#top_bar>span:nth-of-type(3){
+  position: relative;
+  left: 45%;
+}
+.button1 , .button2 , .button3{
+  float: left;
+  width: 100px;
+  height: 48px;
+  position: relative; top:0px; /*left:30px;*/
+  /*float: left;*/
+  margin-top: 6px ;
+  text-align: center;
+  overflow: hidden;
+
+  -webkit-border-radius: 100px;
+  -moz-border-radius: 100px;
+  border-radius: 100px;
+}
+.button1 a , .button2 a , .button3 a{
+  display: block;
+  /*margin-top: -30px ;*/
+  margin: 0 auto;
+  position: relative; 
+  width: 100px;
+  height: 48px;  
+  font: lighter 1.9em/50px "Arial","Microsoft YaHei","黑体","宋体",sans-serif;
+  text-decoration: none;
+}
+.button1 a{
+  top:-48px;
+}
+.button1 a:first-child{
+  color: #ffffff;
+  background-color:#D6BD1B;
+}
+.button1 a:nth-of-type(2){
+  color: #ffffff;
+  background-color:#E02228;
+}
+
+.button2 a{
+  top:0px;
+}
+.button2 a:first-child{
+  color: #ffffff;
+  background-color:#4EAB10;
+}
+.button2 a:nth-of-type(2){
+  color: #ffffff;
+  background-color:#C62AE6;
+}
+
+.button3 a{
+  top:-48px;
+}
+.button3 a:first-child{
+  color: #ffffff;
+  background-color:#EC9D48;
+}
+.button3 a:nth-of-type(2){
+  color: #ffffff;
+  background-color:#2CB5D7;
+}
+/*top_bar中glyphicon图标样式*/
+.icon_add{
+  font-size: 33px;
+  margin-top: 7px;
+  color: #ffffff;
+}
+
+#top_panel{
+  height: 165px;
+  background-color: #DAEED2;
+  position: relative; top:0px;
+  overflow: hidden;
+}
+/*向下箭头*/
+.downward{
+  width: 65px;
+  margin: 10px auto;
+  padding-top: 50px ;
+  text-align: center;
+  z-index: 2;
+
+  -webkit-animation: downward 3s ease-in-out infinite;
+   -moz-animation: downward 3s ease-in-out infinite;
+        animation: downward 3s ease-in-out infinite;
+}
+.downward a{
+  text-decoration: none;
+}
+
+@-webkit-keyframes downward{
+    15%{ padding-top: 50px;}
+    25%{ padding-top: 70px;}
+    35%{ padding-top: 50px;}
+    45%{ padding-top: 70px;}
+    55%{ padding-top: 50px;}
+}
+@-moz-keyframes downward{
+    15%{ padding-top: 50px;}
+    25%{ padding-top: 70px;}
+    35%{ padding-top: 50px;}
+    45%{ padding-top: 70px;}
+    55%{ padding-top: 50px;}
+}
+@keyframes downward{
+    15%{ padding-top: 50px;}
+    25%{ padding-top: 70px;}
+    35%{ padding-top: 50px;}
+    45%{ padding-top: 70px;}
+    55%{ padding-top: 50px;}
+}
+
+.downward a span:first-child{
+  opacity:0.7;
+  display: block;
+  color: #221B6D;
+  font-size: 43px;
+}
+.downward a span:nth-of-type(2){
+  opacity:0.7;
+  display: block;
+  color: #221B6D;
+  margin-top: -12px;
+  font-size: 37px;
+}
+.downward:hover{
+  /*margin: 58px auto;*/
+  padding-top: 58px ;
+  -webkit-animation: stop 0s;
+     -moz-animation: stop 0s;
+          animation: stop 0s;
+}
+/*用于停止箭头动画*/
+@-webkit-keyframes stop{ }
+@-moz-keyframes stop{ }
+@keyframes stop{ }
+
+.downward:hover a span{
+  opacity: 1;
+  -webkit-transform:scale(1.1); 
+     -moz-transform:scale(1.1);  
+          transform:scale(1.1);  
+}
+
+.panel_content{
+  /*display: none;*/
+  /*不随着上方箭头height的变化，而改变位置*/
+  display: none;
+  position: absolute; top:20px;
+}
+.panel_content span{
+  float: left;
+}
+.photo{
+  position: relative;
+  left: 43%;
+}
+.photo div{
+  overflow: hidden;
+  width: 130px;
+  height: 130px;
+  border: 4px solid #ffffff;
+  
+  -webkit-border-radius: 100px;
+     -moz-border-radius: 100px;
+          border-radius: 100px;
+
+  -webkit-box-shadow: 4px 4px 10px #888484;
+     -moz-box-shadow: 4px 4px 10px #888484;
+          box-shadow: 4px 4px 10px #888484;
+}
+.photo img{
+  width: 100%;
+}
+.description{
+  width: 500px;
+  position: relative;
+  left: 50%;
+} 
+.description h2{
+  font: 31px/45px "Arial","Microsoft YaHei","黑体","宋体",sans-serif;
+}
+.description .glyphicon{
+  font-size: 22px;
+  padding: 3px 9px 0 0;
+  color: #613414;
+}
+.description h3{
+  color: #613414;
+  font: 21px/30px "黑体","宋体",sans-serif;
+  opacity: 0.85;
+/*  -webkit-text-shadow: 2px 2px 10px #888484;
+     -moz-text-shadow: 2px 2px 10px #888484;
+          text-shadow: 2px 2px 10px #888484;*/
+}
+
+#main_div{
+  position: relative;
+  /*margin-top: 100px;*/
+  padding: 20px 20px 0 20px;
+  z-index: 0;
+  background-color: #ffffff;
+}
+
+/*正文文章*/
+#articles>div{
+  padding-bottom: 60px;
+}
+.tag{
+  margin-top: 30px;
+  text-align: center;
+}
+.tag_content{
+  padding-left: 9%;
+  width: 80%;
+  text-align: center;
+}
+.tag_content img{
+  width: 100%;
+}
+.tag_content h1{
+  font-family: "Reenie_Beanie" ;
+  font-size: 41px;
+  margin-top: -73%;
+}
+.tag_content h2{
+  font-family: "Reenie_Beanie" ;
+  font-size: 60px;
+  margin-top:-24px;
+}
+@font-face {
+  font-family: 'Reenie_Beanie';
+  src: url('../fonts/Reenie Beanie-webfont.eot');
+  src: url('../fonts/Reenie Beanie-webfont.eot?#iefix') format('embedded-opentype'),
+       url('../fonts/Reenie Beanie-webfont.woff') format('woff'),
+       url('../fonts/Reenie Beanie.ttf') format('truetype'),
+       url('../fonts/Reenie Beanie-webfont.svg#Reenie_Beanie') format('svg');
+  font-weight: bold;
+  font-style: normal;
+}
+
+/*文章题下标签*/
+.article_label{
+  margin: 30px 0 30px 0;
+}
+.article_label span{
+  width: 40px;
+  height: 20px;
+  padding: 4px 13px 4px 13px;
+  margin: 0 5px 0 5px;
+  color: #3720BC;
+  background-color: #E0DFE5;
+
+  -webkit-border-radius: 50px;
+  -moz-border-radius: 50px;
+  border-radius: 50px;
+  -webkit-transition: color 0.7s;
+  -moz-transition: color 0.7s;
+  transition: color 0.7s;
+}
+.article_label span:hover{
+  color: #18171B;
+}
+
+/*文章间分隔线*/
+.divided_line{
+/*  height: 1px;*/
+  /*background-color: #C5C4C4;*/
+  border-top: 1px solid #DCD6D6;
+  margin-bottom: 30px;
+}
