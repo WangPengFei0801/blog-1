@@ -1,5 +1,5 @@
 #top_pic{
-  width: 100%;
+  /*width: 100%;*/
   /*height: 580px;   改为document加载时由jquery动态确定*/
   /*margin-top: 0px ;*/
   text-align: center;
@@ -14,7 +14,7 @@
 #top_pic h1{
   position: fixed; 
   z-index: -2;
-  /*  用于在fixed状态下元素居中 */
+  /*  left,right用于在fixed状态下元素居中 */
   /*margin:0px auto;*/
   left:0;
   right:0;
@@ -30,43 +30,57 @@
   font: lighter 93px "KaiTi","FangSong","黑体","Microsoft YaHei","宋体",sans-serif;
   letter-spacing: 10px;
 }
+
+/*用于当top_bar的position变为fixed后，仍然有固定高度，令下边的div不会高度上升*/
+#top_bar_father{
+  height: 60px;
+}
 #top_bar{
   width: 100%;
   height: 60px;
-  /*margin-top: 0px ;*/
+ /* margin: 0 auto;*/
   position: relative;
   background-color: #E7E8E9;
-  text-align: center;
   z-index: 10;
  
+/* 用于颜色的渐变效果*/
   background: -webkit-gradient(linear,left,right,from(#CDD0EF),color-stop(0.5,#EBEAF5),to(#CDD0EF));
   background: -moz-linear-gradient(left, #CDD0EF, #EBEAF5, #CDD0EF);
   background: -o-linear-gradient(left, #CDD0EF, #EBEAF5, #CDD0EF);
   background: -webkit-linear-gradient(left, #CDD0EF, #EBEAF5 50%, #CDD0EF); 
 
-  -webkit-box-shadow: 3px 3px 18px #888484;
-  -moz-box-shadow: 3px 3px 18px #888484;
-  box-shadow: 3px 3px 18px #888484;
+/*第一个属性值为水平方向，第二个为垂直方向。正值为右下，负值为左上*/
+  -webkit-box-shadow: 0px 3px 18px #888484;
+  -moz-box-shadow: 0px 3px 18px #888484;
+  box-shadow: 0px 3px 18px #888484;
+
+  text-align: center;
+}
+/*用于三个按钮的响应式居中*/
+.adjust{
+  width: 500px;
+  margin: 0 auto;
+  /*text-align: center;*/
 }
 /* >选择第一层子元素*/
-#top_bar>span:first-child{
+.adjust>span:first-child{
   position: relative;
-  left: 32%;
+  left: 0px;
 }
-#top_bar>span:nth-of-type(2){
+.adjust>span:nth-of-type(2){
   position: relative;
-  left: 38.5%;
+  left: 100px;
+
 }
-#top_bar>span:nth-of-type(3){
+.adjust>span:nth-of-type(3){
   position: relative;
-  left: 45%;
+  left: 200px;
 }
 .button1 , .button2 , .button3{
   float: left;
   width: 100px;
   height: 48px;
   position: relative; top:0px; /*left:30px;*/
-  /*float: left;*/
   margin-top: 6px ;
   text-align: center;
   overflow: hidden;
@@ -77,7 +91,7 @@
 }
 .button1 a , .button2 a , .button3 a{
   display: block;
-  /*margin-top: -30px ;*/
+  /*block会在a后加上换行符*/
   margin: 0 auto;
   position: relative; 
   width: 100px;
@@ -130,7 +144,7 @@
 #top_panel{
   height: 165px;
   background-color: #DAEED2;
-  position: relative; top:0px;
+  position: relative; top: 0px;
   overflow: hidden;
 }
 /*向下箭头*/
@@ -145,10 +159,9 @@
    -moz-animation: downward 3s ease-in-out infinite;
         animation: downward 3s ease-in-out infinite;
 }
-.downward a{
+/*.downward a{
   text-decoration: none;
-}
-
+}*/
 @-webkit-keyframes downward{
     15%{ padding-top: 50px;}
     25%{ padding-top: 70px;}
@@ -170,17 +183,16 @@
     45%{ padding-top: 70px;}
     55%{ padding-top: 50px;}
 }
-
-.downward a span:first-child{
+.downward span{
   opacity:0.7;
   display: block;
   color: #221B6D;
+  cursor:pointer;  /*改变鼠标光标样式*/
+}
+.downward span:first-child{
   font-size: 43px;
 }
-.downward a span:nth-of-type(2){
-  opacity:0.7;
-  display: block;
-  color: #221B6D;
+.downward span:nth-of-type(2){
   margin-top: -12px;
   font-size: 37px;
 }
@@ -196,16 +208,16 @@
 @-moz-keyframes stop{ }
 @keyframes stop{ }
 
-.downward:hover a span{
+.downward:hover span{
   opacity: 1;
+  /*放大为1.1倍*/
   -webkit-transform:scale(1.1); 
      -moz-transform:scale(1.1);  
           transform:scale(1.1);  
 }
 
 .panel_content{
-  /*display: none;*/
-  /*不随着上方箭头height的变化，而改变位置*/
+  /*不随着上方箭头height的变化改变位置*/
   display: none;
   position: absolute; top:20px;
 }
@@ -258,17 +270,19 @@
 #main_div{
   position: relative;
   /*margin-top: 100px;*/
-  padding: 20px 20px 0 20px;
+  padding: 20px 0px 0 20px;
   z-index: 0;
   background-color: #ffffff;
 }
 
 /*正文文章*/
 #articles>div{
+  /*文章区域下边距*/
   padding-bottom: 60px;
 }
+/*左边栏便利贴*/
 .tag{
-  margin-top: 30px;
+  margin-top: 18px;
   text-align: center;
 }
 .tag_content{
@@ -299,10 +313,33 @@
   font-weight: bold;
   font-style: normal;
 }
+/*便签旋转动画效果*/
+.tag:hover{
+  -webkit-animation: tags .5s linear;
+  -moz-animation: tags .5s linear;
+  animation: tags .5s linear;
+}
+@-webkit-keyframes tags{
+  /*20%{-webkit-transform:scale(1.2);}*/
+  25%{-webkit-transform:rotate(-10deg);}  
+  75%{-webkit-transform:rotate(10deg);}  
+  100%{-webkit-transform:rotate(0deg);}  
+  /*100%{-webkit-transform:scale(0.8);}*/
+}
+@-moz-keyframes tags{
+  25%{-moz-transform:rotate(-10deg);}  
+  75%{-moz-transform:rotate(10deg);}  
+  100%{-moz-transform:rotate(0deg);}  
+}
+@keyframes tags{
+  25%{transform:rotate(-10deg);}  
+  75%{transform:rotate(10deg);}  
+  100%{transform:rotate(0deg);}  
+}
 
 /*文章题下标签*/
 .article_label{
-  margin: 30px 0 30px 0;
+  margin: 30px 0 10px 0;
 }
 .article_label span{
   width: 40px;
@@ -315,6 +352,8 @@
   -webkit-border-radius: 50px;
   -moz-border-radius: 50px;
   border-radius: 50px;
+
+  /*鼠标指到时渐变色*/
   -webkit-transition: color 0.7s;
   -moz-transition: color 0.7s;
   transition: color 0.7s;
@@ -322,11 +361,63 @@
 .article_label span:hover{
   color: #18171B;
 }
+/*文章正文内容*/
+.body_text{
+  font:18px/30px "Arial","Microsoft YaHei","黑体","宋体",sans-serif;
+  white-space: pre-wrap;
+}
 
 /*文章间分隔线*/
 .divided_line{
 /*  height: 1px;*/
   /*background-color: #C5C4C4;*/
-  border-top: 1px solid #DCD6D6;
+  border-top: 2px solid #DCD6D6;
   margin-bottom: 30px;
+}
+
+/*右侧目录*/
+#catalogue_father{
+  padding: 0;
+}
+#catalogue{
+  position: relative;
+  top: 0px;
+  left: 0px;
+}
+/*返回顶部*/
+#catalogue h3{
+  margin: 17px 0 0 15px;
+  font:25px "Arial","Microsoft YaHei","黑体","宋体",sans-serif;
+  opacity: 0.7;
+  color: #69258B;
+  cursor: pointer;
+}
+#catalogue h4{
+  margin:0 0 -5px 15px;
+  font:italic 20px "黑体","Microsoft YaHei","宋体",sans-serif;
+  opacity: 0.85;
+  color: #652784;
+  cursor: pointer;
+}
+#catalogue h3:hover{
+  opacity: 1;
+  color: #652784;
+}
+#catalogue h4:hover{
+  opacity: 1;
+  color: #652784;
+}
+#catalogue h3:hover:after{
+  content: " <";
+  color: #652784;
+  font:24px "黑体","Microsoft YaHei","宋体",sans-serif;
+}
+#catalogue h4:hover:after{
+  content: " <";
+  color: #652784;
+  font:20px "黑体","Microsoft YaHei","宋体",sans-serif;
+}
+.active_catalogue{
+  font-size: 15px/30px;
+  color: #000000;
 }

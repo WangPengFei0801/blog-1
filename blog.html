@@ -7,9 +7,6 @@
     <title>luhantao_blog</title>
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
       <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
@@ -28,32 +25,35 @@
 
     <div class="container-fluid">
       <!-- top_bar 导航栏  -->
-      <div class="row">
+      <div class="row" id="top_bar_father">
         <div id="top_bar">
-          <span>
-            <div class="button1">
-              <a href="#">首页</a>
-              <a href="#">
-                <span class="glyphicon glyphicon-home icon_add" aria-hidden="true"></span>
-              </a> 
-            </div>  
-          </span>
-          <span>
-            <div class="button2">
-              <a href="#">
-                <span class="glyphicon glyphicon-pencil icon_add" aria-hidden="true"></span>
-              </a> 
-              <a href="#">文章</a>
-            </div>  
-          </span>
-          <span>
-            <div class="button3">
-              <a href="#">作者</a> 
-              <a href="#">
-                <span class="glyphicon glyphicon-user icon_add" aria-hidden="true"></span>
-              </a>
-            </div>  
-          </span>
+          <!-- .adjust用于调整三个按钮位置居中 -->
+          <div class="adjust">
+            <span>
+              <div class="button1">
+                <a href="javascript:void(0)">首页</a>
+                <a href="javascript:void(0)">
+                  <span class="glyphicon glyphicon-home icon_add" aria-hidden="true"></span>
+                </a> 
+              </div>  
+            </span>
+            <span>
+              <div class="button2">
+                <a href="javascript:void(0)">
+                  <span class="glyphicon glyphicon-pencil icon_add" aria-hidden="true"></span>
+                </a> 
+                <a href="javascript:void(0)">文章</a>
+              </div>  
+            </span>
+            <span>
+              <div class="button3">
+                <a href="javascript:void(0)">作者</a> 
+                <a href="javascript:void(0)">
+                  <span class="glyphicon glyphicon-user icon_add" aria-hidden="true"></span>
+                </a>
+              </div>  
+            </span>
+          </div>
         </div>
       </div>
 
@@ -61,10 +61,10 @@
       <div class="row" id="top_panel">
         <div class="downward">
           <!-- a不能加入href！！不然会闪回到首页!!!!! -->
-          <a > 
+          <!-- <a >  -->
             <span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>
             <span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>
-          </a>
+          <!-- </a> -->
         </div>
         <div class="panel_content">
           <span class="photo">
@@ -93,20 +93,60 @@
               <div class="tag_content">
                 <img src="image/tag.jpg">
                 <h1>2015</h1>               
-                <h2>3-23</h2>
+                <h2>3-25</h2>
               </div>
             </div>
             <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
-              <div class="body_text">
-                <h2><b> jquery的ajax提交时“加载中”提示的处理方法</b></h2>
-                <h4 class="article_label">标签：
-                  <span>Ajax</span>
-                  <span>jQuery</span>
-                  <span>xmlhtttrequest</span>
-                </h4>
-                <p>&nbsp;&nbsp;自动换行问题,正常字符的换行是比较合理的,而连续的数字和英文字符常常将容器撑大,挺让人头疼,下面介绍的是CSS如何实现换行的方法2自动换行问题,正常字符的换行是比较合理的,而连续的数字和英文字符常常将容器撑大,挺让人头疼,下面介绍的是CSS如何实现换行的方法2自动换行问题,正常字符的换行是比较合理的,而连续的数字和英文字符常常将容器撑大,挺让人头疼,下面介绍的是CSS如何实现换行的方法2自动换行问题,正常字符的换行是比较合理的,而连续的数字和英文字符常常将容器撑大,挺让人头疼,下面介绍的是CSS如何实现换行的方法2自动换行问题,正常字符的换行是比较合理的,而连续的数字和英文字符常常将容器撑大,挺让人头疼,下面介绍的是CSS如何实现换行的方法2自动换行问题,正常字符的换行是比较合理的,而连续的数字和英文字符常常将容器撑大,挺让人头疼,下面介绍的是CSS如何实现换行的方法2自动换行问题,正常字符的换行是比较合理的,而连续的数字和英文字符常常将容器撑大,挺让人头疼,下面介绍的是CSS如何实现换行的方法2自动换行问题,正常字符的换行是比较合理的,而连续的数字和英文字符常常将容器撑大,挺让人头疼,下面介绍的是CSS如何实现换行的方法2自动换行问题,正常字符的换行是比较合理的,而连续的数字和英文字符常常将容器撑大,挺让人头疼,下面介绍的是CSS如何实现换行的方法2自动换行问题,正常字符的换行是比较合理的,而连续的数字和英文字符常常将容器撑大,挺让人头疼,下面介绍的是CSS如何实现换行的方法2自动换行问题,正常字符的换行是比较合理的,而连续的数字和英文字符常常将容器撑大,挺让人头疼,下面介绍的是CSS如何实现换行的方法2自动换行问题,正常字符的换行是比较合理的,而连续的数字和英文字符常常将容器撑大,挺让人头疼,下面介绍的是CSS如何实现换行的方法2自动换行问题,正常字符的换行是比较合理的,而连续的数字和英文字符常常将容器撑大,挺让人头疼,下面介绍的是CSS如何实现换行的方法2自动换行问题,正常字符的换行是比较合理的,而连续的数字和英文字符常常将容器撑大,挺让人头疼,下面介绍的是CSS如何实现换行的方法2自动换行问题,正常字符的换行是比较合理的,而连续的数字和英文字符常常将容器撑大,挺让人头疼,下面介绍的是CSS如何实现换行的方法2自动换行问题,正常字符的换行是比较合理的,而连续的数字和英文字符常常将容器撑大,挺让人头疼,下面介绍的是CSS如何实现换行的方法2自动换行问题,正常字符的换行是比较合理的,而连续的数字和英文字符常常将容器撑大,挺让人头疼,下面介绍的是CSS如何实现换行的方法2自动换行问题,正常字符的换行是比较合理的,而连续的数字和英文字符常常将容器撑大,挺让人头疼,下面介绍的是CSS如何实现换行的方法2自动换行问题,正常字符的换行是比较合理的,而连续的数字和英文字符常常将容器撑大,挺让人头疼,下面介绍的是CSS如何实现换行的方法2
-                </p>
-              </div>
+              <h2 class="titles"><b>有用该记住的jquery用法</b></h2>
+              <h4 class="article_label">
+                标签：
+                <span>jQuery</span>
+                <span>javascript</span>
+              </h4>
+              <p class="body_text">
+    1.  var selector = $(this).children("a");  
+    2.  tID = setTimeout( function() {xxx} ，100)；clearTimeout(tId);   //mouseenter时延迟100ms执行；mouseleave时清除延时，且调用stop方法，清空动画队列
+    3.  $(this).children("a").stop().animate({"top":"-60px"} , "easeInOutCubic");   //动画函数animate
+    4.    $('html, body').animate({"scrollTop" : “200px”}, "linear");
+    5.    手动制作向右淡入与淡出的效果：
+    $('#top_panel .downward').fadeOut(100 , function(){     
+          $('#top_panel .panel_content')
+          .css({"display":"none" , "margin-left":"-10%"})
+          //fadein顺序相反会出bug！！！！！！！！！！！！！！！！！！
+          .fadeIn(700)
+          .queue("fade_in", function(next){
+            $(this).animate({"margin-left" : "0%"} ,  {"duration": 400 , "queue": false});
+            next();
+          })
+          .dequeue("fade_in");
+
+    6.选择第n个子元素：
+        $(“#div1”).eq(n).addClass(“blue”);  //注意，eq(n)是从第0个开始的
+         $(“div:eq(1)”).addClass(“blue”); //若eq(index)的index为负数，则从后开始
+        $(“body”).find(“div”).eq(n).addClass(“blue”);  // find找出所有后代元素
+          $('#div1').children('span').length;   //children找出所有子元素，注意区别
+    //length返回选择器选择的个数
+
+    /*先把它定位到屏幕左侧，然后fadeIn 的效果同时，额外加入一个自定义队列，来做向右滑动的animate效果。注意，由于两个效果需要并行同时执行，所以在自定义队列的animate中，"queue": false   让其不加入默认的fx动画队列。*/
+    7.用jquery动态生成的html，不能直接用click事件绑定，需要用on事件绑定
+
+    $('#top_panel .panel_content')
+        .queue("go_right", function(next){
+            $(this).animate({"margin-left" : "50%"} ,  {"duration": 800 , "queue": false});
+            next();
+          })
+        .dequeue("go_right")
+        .fadeOut(600 , function(){
+          $('#top_panel .downward').fadeIn(150);
+        });   
+      
+    /*向右淡出效果，思路同上。注意淡出时先animate后fadeOut，淡入时先fadeIn后animate。反过来可能会出bug！！*/
+
+    8.若想刷新后返回页面顶部，可用
+    window.onbeforeunload = function(){
+      $(window).scrollTop('0');
+    }
+              </p>
             </div>
           </div>
 
@@ -118,41 +158,139 @@
               <div class="tag_content">
                 <img src="image/tag.jpg">
                 <h1>2015</h1>               
+                <h2>3-24</h2>
+              </div>
+            </div>
+            <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
+              <h2 class="titles"><b>有用该记住的css用法</b></h2>
+              <h4 class="article_label">标签：
+                <span>css</span>
+                <span>css3</span>
+                <span>属性</span>
+              </h4>
+              <p class="body_text">
+    1.  -webkit-box-shadow: 3px 3px 18px #888484;  //阴影
+    2.  -moz-border-radius: 100px;  //圆角或圆形实现
+    3.  -o-linear-gradient(left, #CDD0EF, #EBEAF5, #CDD0EF);  //渐变颜色
+    4.  text-decoration: none;   //不要下划线
+    5.  letter-spacing: 9px;     //字间距设置
+    6.  transition:background-color 1s ease-in-out;   //动画平缓变化
+    7.  font: lighter 2em/85px "Helvetica Neue", "Arial", "Helvetica", "sans-serif";//可调节字体距顶部的高度
+    8.  .button2 a:first-child    .button2 a:nth-of-type(2)   //子元素选择
+    9.  .button2:hover  //做动画
+    10.  animation:mymove 5s infinite;  //infinite是不断重复执行
+    @keyframes mymove
+    {
+    from {left:0px;}  
+    to {left:200px;}
+    // 0%{-moz-transform:rotate(0deg)}   //transform还可以做scale放大
+    // 100%{-moz-transform:rotate(360deg)}
+    }
+    10.  x=$("p").offset();  $("#span1").text(x.left/top);  //距离顶部高度
+    11.  glyphicon图标，属于font，可以调节字体大小或颜色
+    12.  transform-origin: 1px 1px;   //变化原点，不大懂
+    animation: hrhand 8s linear infinite (alternate);  //动画，infinite无限重复
+    @-webkit-keyframes hrhand{
+    0%{-webkit-transform:rotate(0deg)}
+    100%{-webkit-transform:rotate(360deg)}
+    }  //有时不到100%，有特别的收回效果，不懂
+    //alternate：交替起点终点效果
+
+    13. cursor属性，定义指针经过时光标形状。
+    14.在调节top_bar三个按钮位置时，曾尝试多种方式，都无法做到具有响应式的居中。后来在三个按钮的span标签外，外套一层div，设置div的margin：0 auto ，同时设定div宽度固定为3*300+200px （按钮宽度100px，间距100px）。然后再利用span的，position:relative 和left属性调节相对边距，从而达到响应式居中。
+    15. white-space属性：
+    有nowrap, pre, pre-wrap, pre-line这几个可选属性值。其中在文章正文内容中，空格符需要保留，换行符需要保留，自动运行允许，这时我们就需要使用pre-wrap属性值。
+              </p>
+            </div>
+          </div>
+
+          <!-- 文章之间分割线 -->
+          <hr class="divided_line"> 
+
+          <div class="row" id="article3">
+            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3  tag">
+              <div class="tag_content">
+                <img src="image/tag.jpg">
+                <h1>2015</h1>               
                 <h2>3-23</h2>
               </div>
             </div>
             <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
-              <div class="body_text">
-                <h2><b> helloworld</b></h2>
-                <h4 class="article_label">标签：
-                  <span>Ajax</span>
-                  <span>jQuery</span>
-                  <span>xmlhtttrequest</span>
-                </h4>
-                <p>&nbsp;&nbsp;自动换行问题,正常字符的换行是比较合理的,而连续的数字和英文字符常常将容器撑大,挺让人头疼,下面介绍的是CSS如何实现换行的方法2自动换行问题,正常字符的换行是比较合理的,而连续的数字和英文字符常常将容器撑大,挺让人头疼,下面介绍的是CSS如何实现换行的方法2自动换行问题,正常字符的换行是比较合理的,而连续的数字和英文字符常常将容器撑大,挺让人头疼,下面介绍的是CSS如何实现换行的方法2自动换行问题,正常字符的换行是比较合理的,而连续的数字和英文字符常常将容器撑大,挺让人头疼,下面介绍的是CSS如何实现换行的方法2自动换行问题,正常字符的换行是比较合理的,而连续的数字和英文字符常常将容器撑大,挺让人头疼,下面介绍的是CSS如何实现换行的方法2自动换行问题,正常字符的换行是比较合理的,而连续的数字和英文字符常常将容器撑大,挺让人头疼,下面介绍的是CSS如何实现换行的方法2自动换行问题,正常字符的换行是比较合理的,而连续的数字和英文字符常常将容器撑大,挺让人头疼,下面介绍的是CSS如何实现换行的方法2自动换行问题,正常字符的换行是比较合理的,而连续的数字和英文字符常常将容器撑大,挺让人头疼,下面介绍的是CSS如何实现换行的方法2自动换行问题,正常字符的换行是比较合理的,而连续的数字和英文字符常常将容器撑大,挺让人头疼,下面介绍的是CSS如何实现换行的方法2自动换行问题,正常字符的换行是比较合理的,而连续的数字和英文字符常常将容器撑大,挺让人头疼,下面介绍的是CSS如何实现换行的方法2自动换行问题,正常字符的换行是比较合理的,而连续的数字和英文字符常常将容器撑大,挺让人头疼,下面介绍的是CSS如何实现换行的方法2自动换行问题,正常字符的换行是比较合理的,而连续的数字和英文字符常常将容器撑大,挺让人头疼,下面介绍的是CSS如何实现换行的方法2自动换行问题,正常字符的换行是比较合理的,而连续的数字和英文字符常常将容器撑大,挺让人头疼,下面介绍的是CSS如何实现换行的方法2自动换行问题,正常字符的换行是比较合理的,而连续的数字和英文字符常常将容器撑大,挺让人头疼,下面介绍的是CSS如何实现换行的方法2自动换行问题,正常字符的换行是比较合理的,而连续的数字和英文字符常常将容器撑大,挺让人头疼,下面介绍的是CSS如何实现换行的方法2自动换行问题,正常字符的换行是比较合理的,而连续的数字和英文字符常常将容器撑大,挺让人头疼,下面介绍的是CSS如何实现换行的方法2自动换行问题,正常字符的换行是比较合理的,而连续的数字和英文字符常常将容器撑大,挺让人头疼,下面介绍的是CSS如何实现换行的方法2自动换行问题,正常字符的换行是比较合理的,而连续的数字和英文字符常常将容器撑大,挺让人头疼,下面介绍的是CSS如何实现换行的方法2自动换行问题,正常字符的换行是比较合理的,而连续的数字和英文字符常常将容器撑大,挺让人头疼,下面介绍的是CSS如何实现换行的方法2
-                </p>
-              </div>
+              <h2 class="titles"><b>开发本博客时一些效果的实现方法与思路</b></h2>
+              <h4 class="article_label">
+                标签：
+                <span>blog</span>
+                <span>ideas</span>
+                <span>methods</span>
+              </h4>
+              <p class="body_text">
+    <b>1.  在同一行中想排多个元素时，有几种方法：</b>
+    i，  用float:left ，多个排列
+    ii， 用span标签，设置padding和margin值
+    iii，  用Bootstrap的布局系统
+
+    <b>2.  实现顶部图片（固定效果）：</b>
+    I，  在top_pic的子元素中，加入position：fixed。如果想要居中，同时设置left:0和right:0
+    II， Z-index要设置较小值
+    III，  字体大小: font: lighter 92px "KaiTi" , "FangSong" , "黑体" , "Microsoft YaHei" , "宋体" ,sans-serif;
+    IV， 用background_image无法实现图片百分百平铺+响应式，选择在div中加入img标签
+
+    <b>3.  实现导航栏中三个动态按钮：</b>
+    I，  设置一个固定长高的div，并设置边角圆形
+    II， 加入两个a标签，设置height与父div高度相同
+    III，  加入display：block  , 会加入换行符
+    IV， Position:relative ,然后在CSS的hover事件，或者jQuery的mouseenter/mousehover + mouserleave事件中，用animate改变top值()
+
+    <b>4.  实现导航栏滚动到顶部时，固定</b>
+    I，  getheight函数求出top_pic的height值global_pic_height，然后jquery赋值给top_bar的height（用到substr去除字符串的“px”）
+    II， 赋值给图片上文字top_pic h1/h2的height属性
+    III，  $(document).ready( get_height() )；加载页面时触发。
+    IV， $(window).resize(function() {  get_height();  });改变窗口大小或缩放时触发，动态调节top_bar的高度。
+    V 用scroll事件，求scrollTop值，与top_pic的height比较
+    VI， 改变top_bar 的position为fixed。由于top_bar变为fixed后不占据高度，为了让下边div元素的位置不移动，在top_bar外加上一层父div（top_bar_father），并让父div的height固定（这里是60px），从而不影响下方元素
+
+    <b>5.  实现窗口右侧目录</b>
+    I，  jquery选取$(‘titles’).length，获取正文文章数，并用eq(n)与text()方法取得题目文本，存在全局数组。
+    II， 取得每个题目的offset().top()，存在全局数组，用于后边的锚点定位。
+    III，  判定每个标题长度。首先用charCodeAt(j)区分中文与英文字符，若值为[0 , 128]，为英文。中文字符计算2长度，英文计1。若总长度超过一定值，截去后部分字符串，并加上“…”
+    IV， append方法动态插入目录，每一个加上id，并在最后加上“返回顶部”
+    V，  $(document).on(“click” , “#catalogue h3,h4” , function(){ })，绑定目录的“click”（因为目录为动态生成，不能直接用click事件）。根据current_id = $(this).attr(“id”)，取得对应的标题高度title_height[current_id]
+    VI， $('html , body').animate({"scrollTop" : title_height[current_id] + 'px'} ,  {"duration":600 ,"time-function":"linear" , "queue": false}) 滑动到达指定高度。
+    VII，  与top_bar绑定相同的scroll事件，切换position的fixed与relative属性值。在resize事件中，为了让目录在fixed状态下，也能相对窗口大小调整坐标，考虑在他们外加上一层父div，并利用父div计算相对距离。
+    var new_top = parseInt( $('#catalogue').parent().offset().top)
+        - parseInt( $('#top_bar_father').offset().top );
+    var new_left = parseInt( $('#catalogue').parent().offset().left) ;
+        $('#catalogue').css({"position":"fixed","top":new_top+'px', "left":new_left+'px'});
+    VIII， 使用：hover：after事件，在css content中添加尖嘴指示符号
+    IX， scroll事件中，用当前的top_dis = $(this).scrollTop()，与各个title_height做对比，实现滑动到对应目录条内容时,在其前面添加星号标记。提前在标题上方150px的高度，就添加星号。当top_dis在两个title_height之间时，$('.active_catalogue').remove();  
+    $('#catalogue' + (i-1) ) .prepend('&lt; span class="active_catalogue glyphicon glyphicon-star">&lt;/span>');
+    record[i] = 1; record[i-1] = 0; record[i+1] = 0;
+    其中record是用来记录，当前高度属于哪篇文章。
+
+              </p>
             </div>
           </div>
+
         </div>
 
-        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3" id="links">
-          <p> 
-            For example, <code>&lt;section&gt;</code> should be wrapped as inline.
-            <pre>&lt;p&gt;Sample text here...helloworld..helloworld..helloworld..helloworld..helloworld..&lt;/p&gt;</pre>
-            To switch directories, type <kbd>cd</kbd> followed by the name of the directory.<br>
-            To edit settings, press <kbd><kbd>ctrl</kbd> + <kbd>,</kbd></kbd> <br>
-            <samp>This text is meant to be treated as sample output from a computer program.</samp><br>
-            <var>y</var> = <var>m</var><var>x</var> + <var>b</var>
-          </p>
+
+        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3" id="catalogue_father">
+          <div id="catalogue">
+            <!-- <p> 
+              For example, <code>&lt;section&gt;</code> should be wrapped as inline.
+              <pre>&lt;p&gt;Sample text here...helloworld..helloworld..helloworld..helloworld..helloworld..&lt;/p&gt;</pre>
+              To switch directories, type <kbd>cd</kbd> followed by the name of the directory.<br>
+              To edit settings, press <kbd><kbd>ctrl</kbd> + <kbd>,</kbd></kbd> <br>
+              <samp>This text is meant to be treated as sample output from a computer program.</samp><br>
+              <var>y</var> = <var>m</var><var>x</var> + <var>b</var>
+            </p> -->
+          </div>
         </div>
         
       </div>
     </div>
 
-
     <script src="js/jquery.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
     <script src="js/tao_blog.js"></script>
   </body>
 </html>

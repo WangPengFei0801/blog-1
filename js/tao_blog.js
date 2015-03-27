@@ -1,3 +1,25 @@
+//刷新页面后滚动条归0，防止出现下文fixed的内容错位的情况
+window.onbeforeunload = function(){
+  $(window).scrollTop('0');
+}
+
+$(document).ready(function(){
+  top_pic_height();    //确定顶部图片的高度
+  catalogue();       //右侧固定目录
+  area = 1;
+});
+
+$(window).resize(function() {
+  top_pic_height();
+  if ($(window).scrollTop() > global_pic_height){
+  // 调整窗口时，若处于area3，需重新计算fixed位置
+    var new_top = parseInt( $('#catalogue').parent().offset().top)
+                            - parseInt( $('#top_bar_father').offset().top );
+    var new_left = parseInt( $('#catalogue').parent().offset().left) ;
+    $('#catalogue').css({"position":"fixed", "top":new_top+'px', "left":new_left+'px'});
+  }
+});
+
 // 通过获取顶部图片高度，从而动态确定父div高度
 function top_pic_height(){
   var pic_height = $('#top_pic img').css("height");
@@ -8,30 +30,80 @@ function top_pic_height(){
   $('#top_pic h2').css({"top":global_pic_height*0.51});  //设置图片中字体高度
 }
 
-// !!!!!!!!!!   注意ready函数与resize函数的用法不同！！！一定要像以下两种写法才不会出bug！！！
-$(document).ready( top_pic_height() ) ;
-$(window).resize(function() {
-  top_pic_height();
+//生成右侧目录，并添加文章的标题
+function catalogue(){
+  $('#catalogue').empty();  //先清空div
+
+  title_text = new Array();
+  title_height = new Array();
+  for (var i = 0 ; i < $('.titles').length ; i++) {
+   //eq(n)为选择第n个元素，text方法获得文本内容,offset获取偏移距离(top,left)
+    title_text[i] = $('.titles').eq(i).text();
+    title_height[i] = $('.titles').eq(i).offset().top;
+    //若标题过长（真实长度），截取前半部分字数
+    var real_length = 0;
+    
+    for (var j = 0; j < title_text[i].length; j++) {
+      //获取指定位置字符的 Unicode 编码，区别中英文字符长度
+      var charCode = title_text[i].charCodeAt(j);  
+      // 看字符是否为中文
+      if (charCode >= 0 && charCode <= 128){
+        real_length += 1;  
+      }
+      else{
+        real_length += 2; 
+      }
+      if (real_length>21){
+        title_text[i] = title_text[i].substr(0 , j) + '...';       
+        break;
+      }
+    }
+
+    //插入到catalogue的div中
+    $('#catalogue').append('<h4 id="catalogue' + i + '">' + title_text[i] + ' </h4><br>');  
+  }
+  $('#catalogue').append('<h3 id="go_top"><b>返回顶部 </b></h3>')
+}
+
+//监听目录项的点击。动态生成代码不能用click事件，需要用on事件绑定
+$(document).on("click" , "#catalogue h3,h4" , function(){
+  var current_id = $(this).attr("id");
+  //返回顶部
+  if (current_id == "go_top"){
+    $('html , body').animate({"scrollTop" :'0px'} 
+       , {"duration":600 ,"time-function":"linear" , "queue": false});
+    return ;
+  }
+  //截取最后一位真正id，前面的为"catalogue"
+  current_id = current_id.substr(9 ,1);
+  //由于top_bar变为fixed后，下面元素需要补上top_bar的高度差 
+  var temp_height = parseInt(title_height[current_id]) - 80 ;  //字符串转int
+  $('html , body').animate({"scrollTop" :temp_height + 'px'} 
+       , {"duration":600 ,"time-function":"linear" , "queue": false});
 });
 
-//用于判断当前浏览器高度所属区域
-area = 1;
-// test = parseInt(global_pic_height) + 150; //字符串转数字
 
 //滚动触发函数
 $(window).scroll(function(){
-  var top_dis = $(this).scrollTop();
-// 滚动导航栏固定
+  var top_dis = $(this).scrollTop();      //滚动条滚动高度
+
+//获得目录表相对坐标，纵坐标与顶栏对比，横坐标与父div对比
+  var catalogue_top = parseInt( $('#catalogue').parent().offset().top)
+                          - parseInt( $('#top_bar_father').offset().top );
+  var catalogue_left = parseInt( $('#catalogue').parent().offset().left) ;
+
   if (top_dis >= global_pic_height && area < 3) {
+    // 滚动导航栏和右侧目录的固定fixed
     $('#top_bar').css({"position":"fixed" , "top":"0px" });
-    $('#main_div').css({"margin-top": "60px"});
-    $('#top_panel').css({"top": "60px"});
+    $('#catalogue').css({"position":"fixed" 
+          , "top": catalogue_top + 'px' , "left": catalogue_left + 'px'});
+
     area = 3;
   }
   else if (top_dis < global_pic_height && area > 2){
     $('#top_bar').css({"position":"relative" });
-    $('#main_div').css({"margin-top": "0px"});
-    $('#top_panel').css({"top": "0px"});
+    $('#catalogue').css({"position":"relative", "top":"0px" ,"left":"0px"});
+
     area = 2;
   }
 
@@ -40,7 +112,7 @@ $(window).scroll(function(){
     $('#top_panel .downward').fadeOut(100 , function(){
       $('#top_panel .panel_content')
       .css({"display":"none" , "margin-left":"-10%"})
-      //fadein顺序相反会出bug！！！！！！！！！！！！！！！！！！！111
+      //fadein顺序相反会出bug！！！！！！！！！！！！！！！！！！！
       .fadeIn(700)
       .queue("fade_in", function(next){
         $(this).animate({"margin-left" : "0%"} ,  {"duration": 400 , "queue": false});
@@ -57,16 +129,45 @@ $(window).scroll(function(){
         next();
       })
     .dequeue("go_right")
+  //fadeOut顺序相反会出bug！！！！！！！！！！！！！！！！！！！
     .fadeOut(600 , function(){
       $('#top_panel .downward').fadeIn(150);
     });   
     area = 1 ;
   }
 
+  //滑动到对应目录条内容时,添加星号标记
+  var record = new Array();
+  for (var i = 0; i <= title_height.length; i++) {
+    record[i] = 0;   //标记初始化
+  };
+  if (top_dis > parseInt(title_height[title_height.length -1])-150 ){
+    $('.active_catalogue').remove();
+    $('#catalogue' + (title_height.length -1) )
+        .prepend('<span class="active_catalogue glyphicon glyphicon-star"></span>');
+    record[title_height.length -1] = 0;
+  }
+  else if (top_dis < parseInt(title_height[0])-150 ){
+    $('.active_catalogue').remove();
+    record[1] = 0;
+  }
+  else{
+    for (var i = 1; i < title_height.length; i++) {
+      if (top_dis>parseInt(title_height[i-1])-150 && top_dis<parseInt(title_height[i])-150 && record[i]==0){
+        $('.active_catalogue').remove();
+        $('#catalogue' + (i-1) )
+            .prepend('<span class="active_catalogue glyphicon glyphicon-star"></span>');
+        record[i] = 1;
+        record[i-1] = 0;
+        record[i+1] = 0;
+      }
+    }
+  }
+
 });
 
 //向下按钮滑动效果
-$('#top_panel a').click(function(){
+$('.downward').click(function(){
    var height = global_pic_height + "px";
    $('html, body').animate({"scrollTop" : height} , {"duration":500 , "queue": false}); 
    // $(window).animate({scrollTop:300} ,200);
@@ -78,7 +179,6 @@ $('#top_panel a').click(function(){
 //     var scrollTop = document.documentElement.scrollTop || window.pageYOffset || document.body.scrollTop;
 //     return scrollTop;
 // }
-
 // function setScrollTop(scroll_top) {
 //     document.documentElement.scrollTop = scroll_top;
 //     window.pageYOffset = scroll_top;
@@ -113,3 +213,5 @@ $('.button2').mouseenter(function(){
   $('.button2 a').stop().animate({"top":"0px"} , "easeInOutCubic");
   // setInterval( function(){alert("fuck");} , 1000);
 });
+
+
