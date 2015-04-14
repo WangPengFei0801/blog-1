@@ -64,15 +64,21 @@
 }
 /* >选择第一层子元素*/
 .adjust>span:first-child{
+  /*display: inline-block;*/
+  float: left;
   position: relative;
   left: 0px;
 }
 .adjust>span:nth-of-type(2){
+  /*display: inline-block;*/
+  float: left;
   position: relative;
   left: 100px;
 
 }
 .adjust>span:nth-of-type(3){
+  /*display: inline-block;*/
+  float: left;
   position: relative;
   left: 200px;
 }

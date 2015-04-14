@@ -106,7 +106,7 @@ $(window).scroll(function(){
 
     area = 2;
   }
-
+//简介向右滑动效果
   if (top_dis >= 0.4* global_pic_height && area < 2){
       //可以考虑用 jQuery.fn.slideLeftShow = function( speed, callback ) {} 扩充函数
     $('#top_panel .downward').fadeOut(100 , function(){
@@ -137,29 +137,26 @@ $(window).scroll(function(){
   }
 
   //滑动到对应目录条内容时,添加星号标记
-  var record = new Array();
-  for (var i = 0; i <= title_height.length; i++) {
-    record[i] = 0;   //标记初始化
-  };
-  if (top_dis > parseInt(title_height[title_height.length -1])-150 ){
+  var flag = -1;
+  if (top_dis > parseInt(title_height[title_height.length -1])-150 
+          && flag != title_height.length ){
     $('.active_catalogue').remove();
     $('#catalogue' + (title_height.length -1) )
         .prepend('<span class="active_catalogue glyphicon glyphicon-star"></span>');
-    record[title_height.length -1] = 0;
+    flag = title_height.length ;
   }
-  else if (top_dis < parseInt(title_height[0])-150 ){
+  else if (top_dis < parseInt(title_height[0])-150 && flag !=0){
     $('.active_catalogue').remove();
-    record[1] = 0;
+    flag =0;
   }
   else{
     for (var i = 1; i < title_height.length; i++) {
-      if (top_dis>parseInt(title_height[i-1])-150 && top_dis<parseInt(title_height[i])-150 && record[i]==0){
+      if (top_dis>parseInt(title_height[i-1])-150 && top_dis<parseInt(title_height[i])-150 
+            && flag!=i ){
         $('.active_catalogue').remove();
         $('#catalogue' + (i-1) )
             .prepend('<span class="active_catalogue glyphicon glyphicon-star"></span>');
-        record[i] = 1;
-        record[i-1] = 0;
-        record[i+1] = 0;
+        flag = i;
       }
     }
   }
@@ -213,5 +210,6 @@ $('.button2').mouseenter(function(){
   $('.button2 a').stop().animate({"top":"0px"} , "easeInOutCubic");
   // setInterval( function(){alert("fuck");} , 1000);
 });
+
 
 
