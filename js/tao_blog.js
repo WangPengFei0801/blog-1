@@ -1,3 +1,44 @@
+//读取文章json信息文件，通过模板用handlebars生成主文章内容
+(function read_json(){
+  $.ajax({
+    url: 'articles/allArticles.json',
+    type: 'GET',
+    dataType: 'json',
+    success: function(data){
+      var html = $('#article_template').html();
+      var template = Handlebars.compile(html);
+      $('#articles').html(template(data));
+
+      get_articles()     //读取文章内容
+      catalogue();       //右侧固定目录
+    },
+    error: function(err){
+      alert('Get articles failed!');
+      console.log(err); 
+    }
+  });
+})();
+
+//读取本地markdown txt文件，并用showdown.js生成html
+function get_articles(){
+  $('#articles .body_text').each(function(index, element){
+    $.ajax({
+      url: $(this).data('article'),
+      type: 'GET',
+      success: function(data){
+        //根据文档中markdown生成html(使用Bootstrap所配样式)
+        var converter = new Showdown.converter();
+        var htmlCode = converter.makeHtml(data);
+        $(this).html(htmlCode);
+      }.bind(this),
+      error: function(err){
+        alert('Get article text failed!'); 
+        console.log(err);
+      }.bind(this)
+    });
+  });
+}
+
 //刷新页面后滚动条归0，防止出现下文fixed的内容错位的情况
 window.onbeforeunload = function(){
   $(window).scrollTop('0');
@@ -5,7 +46,6 @@ window.onbeforeunload = function(){
 
 $(document).ready(function(){
   top_pic_height();    //确定顶部图片的高度
-  catalogue();       //右侧固定目录
   area = 1;
 });
 
@@ -210,6 +250,4 @@ $('.button2').mouseenter(function(){
   $('.button2 a').stop().animate({"top":"0px"} , "easeInOutCubic");
   // setInterval( function(){alert("fuck");} , 1000);
 });
-
-
 

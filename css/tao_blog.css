@@ -365,11 +365,11 @@
   color: #18171B;
 }
 /*文章正文内容*/
-.body_text{
+/*.body_text{
   font:18px/30px "Arial","Microsoft YaHei","黑体","宋体",sans-serif;
   white-space: pre-wrap;
 }
-
+*/
 /*文章间分隔线*/
 .divided_line{
 /*  height: 1px;*/
