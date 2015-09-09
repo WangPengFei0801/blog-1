@@ -10,7 +10,6 @@
       $('#articles').html(template(data));
 
       get_articles()     //读取文章内容
-      catalogue();       //右侧固定目录
     },
     error: function(err){
       alert('Get articles failed!');
@@ -30,6 +29,8 @@ function get_articles(){
         var converter = new Showdown.converter();
         var htmlCode = converter.makeHtml(data);
         $(this).html(htmlCode);
+
+        catalogue();       //右侧固定目录
       }.bind(this),
       error: function(err){
         alert('Get article text failed!'); 
