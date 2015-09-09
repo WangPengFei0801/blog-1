@@ -1,0 +1,16 @@
+﻿[
+	{
+		"title": "文章1",
+		"tags": ["标签1", "标签2", "标签3", "标签4"],
+		"year": "2015",
+		"month-date": "3-15",
+		"article-text": "articles/article1.txt" 
+	},
+	{
+		"title": "文章2",
+		"tags": ["标签1", "标签2", "标签3", "标签4"],
+		"year": "2333",
+		"month-date": "4-25",
+		"article-text": "articles/article2.txt" 
+	}
+]

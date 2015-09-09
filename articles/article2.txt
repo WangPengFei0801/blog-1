@@ -1,0 +1,20 @@
+﻿##ajax get file
+
+* 第一行
+* 第二行
+
+>这里是引用
+
+    function(){
+       alert("fuck")
+    }
+
+```javascript
+  var ihubo = {
+    nickName  : "草依山",
+    site : "http://jser.me"
+  }
+```
+
+![haha](1.jpg)
+
