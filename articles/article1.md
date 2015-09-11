@@ -152,9 +152,10 @@ function get_articles(){
 *由于在回调函数中`this`值会改变，所以该处回调函数需要添加`bind(this)`*
 
 ********************
+
 ###五. (非必须)选择加入`highlight.js`增加文章内容样式
 
-在默认情况下，用经过`markdown`生成的`html`内容(包括<pre>与<code>)，是没有样式的。在本博客网站中，由于我使用了`bootstrap.min.css`，所以生成的`html`带有样式。如果没有使用`Bootstarp`，可以考虑使用`highlight.js`，里面有多种代码高亮样式供选择，用法如下：
+在默认情况下，用经过`markdown`生成的`html`内容(包括`<pre>`与`<code>`)，是没有样式的。在本博客网站中，由于我使用了`bootstrap.min.css`，所以生成的`html`带有样式。如果没有使用`Bootstarp`，可以考虑使用`highlight.js`，里面有多种代码高亮样式供选择，用法如下:
 
 1. 引入`showdown.min.js`
 

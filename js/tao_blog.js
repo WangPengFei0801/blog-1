@@ -30,7 +30,7 @@ function get_articles(){
         var htmlCode = converter.makeHtml(data);
         $(this).html(htmlCode);
 
-        catalogue();       //右侧固定目录
+        catalogue();       //生成右侧固定目录，需要等文章正文内容插入后再调用
       }.bind(this),
       error: function(err){
         alert('Get article text failed!'); 
