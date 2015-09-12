@@ -12,14 +12,12 @@
 这里我们使用一个前端的模板引擎，叫做`handlebars.js`。它通过编译一段类html代码成为模板，并套入对应格式的`json`数据，从而生成最终的`html`代码。核心的用法如下:
 
 
-1. 引入`handlebars.js`
-
+####1.  引入`handlebars.js`
 ```
 <script src="js/handlebars.js"></script>
 ```
-
-2. 在script标签，通过属性`type="text/x-handlebars-template"`标示标签中内容为handlebars模板
-3. 编写模板代码，变量用`{{VARIABLE}}`标示，循环用`{{#each VARIABLE}}`，还有`{{if VARIABLE}}`用于判断。另外还有{{this}}。本博客的文章模板如下:
+####2.  在`script`标签，通过属性`type="text/x-handlebars-template"`标示标签中内容为`handlebars`模板
+####3.  编写模板代码，变量用`{{VARIABLE}}`标示，循环用`{{#each VARIABLE}}`，还有`{{if VARIABLE}}`用于判断。另外还有`{{this}}`。本博客的文章模板如下:
 
 ```html
     <script id="article_template" type="text/x-handlebars-template">
@@ -81,9 +79,9 @@
 -------------------
 ###三. 通过模板与`json`，生成文章`html`骨架
 
-1. 在本地编写好`allArticles.json`后，要用`javascript`先把它加载进来。这里选择使用`ajax`加载(`jQuery`)。由于`ajax`同源策略的限制，尽管是静态网站，但是我们开发时，还是要放在本地服务器环境，然后用`localhost`加载，不然`ajax`会报错。
+####1. 在本地编写好`allArticles.json`后，要用`javascript`先把它加载进来。这里选择使用`ajax`加载(`jQuery`)。由于`ajax`同源策略的限制，尽管是静态网站，但是我们开发时，还是要放在本地服务器环境，然后用`localhost`加载，不然`ajax`会报错。
 
-2. 在success回调函数中，编译上述 __第一步__ 的handlebars模板(`Handlebars.compile(html)`)，并对模板应用上述`json`数据。 
+####2. 在`success`回调函数中，编译上述 __第一步__ 的`handlebars`模板(`Handlebars.compile(html)`)，并对模板应用上述`json`数据。 
 
 ```javascript
   $.ajax({
@@ -108,22 +106,23 @@
 *回调函数中`get_articles()`为将`md`文件中正文内容编译并插入`html`骨架中，将在下面第四点中讨论。*
 
 -------------------
-###四. 读取`md`文件，编译markdown正文内容为html并插入
+###四. 读取`md`文件，编译`markdown`正文内容为`html`并插入
  
 为了编译`markdown`语句，我们这里采用`showdown.js`库，该库核心用法如下：
 
-1. 引入`showdown.min.js`
+####1. 引入`showdown.min.js`
 
 ```
 <script src="js/showdown.min.js"></script>
 ```
 
-2. 编译`markdown`字符串
+####2. 编译`markdown`字符串
 ```
 var converter = new Showdown.converter();
 var html = converter.makeHtml(markdownString);
 ```
 
+<br>
 为了加载`md`文件，我们仍使用`ajax`方法。整个`get_articles`函数代码如下:
  
 ```javascript
@@ -152,22 +151,23 @@ function get_articles(){
 *由于在回调函数中`this`值会改变，所以该处回调函数需要添加`bind(this)`*
 
 ********************
+
 ###五. (非必须)选择加入`highlight.js`增加文章内容样式
 
-在默认情况下，用经过`markdown`生成的`html`内容(包括<pre>与<code>)，是没有样式的。在本博客网站中，由于我使用了`bootstrap.min.css`，所以生成的`html`带有样式。如果没有使用`Bootstarp`，可以考虑使用`highlight.js`，里面有多种代码高亮样式供选择，用法如下：
+在默认情况下，用经过`markdown`生成的`html`内容(包括`<pre>`与`<code>`)，是没有样式的。因此，我们使用`highlight.js`为代码内容添加高亮(若只使用已引入的`bootstrap.css`，代码块会有背景色标注，但无代码高亮)。里面有多种代码高亮样式供选择，具体用法如下:
 
-1. 引入`showdown.min.js`
+####1. 引入`highlight.pack.js`
 
 ```
 <script src="js/highlight.pack.js"></script>
 ```
 
-2. 引入样式文件，可在多个中任选一个
+####2. 引入样式文件，可在多个中任选一个
 ```
 <link href="css/highlight/default.css" rel="stylesheet">
 ```
 
-3. 在`script`调用
+####3. 在`script`调用
 ```
 hljs.initHighlightingOnLoad();
 ```

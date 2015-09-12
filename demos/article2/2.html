@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>子->父通信</title>
+    <script src="react.js"></script>
+    <script src="JSXTransformer.js"></script>
+  </head>
+  <body>
+    <div id="component"></div>
+    <a href="../../index.html">返回首页</a>
+    <script type="text/jsx">
+        var Father = React.createClass({
+            getInitialState: function(){
+                return {
+                    text: 'nothing'
+                };
+            },
+            fatherHandleClick: function(){
+                this.setState({text:'Hi father!'});
+            },
+            render: function(){
+                return (
+                  <div>
+                    <h1>My son tell me: {this.state.text}</h1>
+                    <Son fatherHandleClick={this.fatherHandleClick}/> 
+                  </div>
+                );
+            }
+        });
+
+        var Son = React.createClass({
+            render: function(){
+                return (
+                    <h3 onClick={this.props.fatherHandleClick}>I am the son, click me!</h3>
+                );
+            }
+        });
+
+        React.render(
+            <Father />, document.querySelector('#component')
+        );
+    </script>
+  </body>
+</html>
