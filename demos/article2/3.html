@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>无关组件通信</title>
+    <script src="react.js"></script>
+    <script src="JSXTransformer.js"></script>
+  </head>
+  <body>
+    <div id="component1"></div>
+    <div id="component2"></div>
+    <a href="../../index.html">返回首页</a>
+
+    <script type="text/jsx">
+        var component1_node;
+
+        var Component1 = React.createClass({
+            getInitialState: function(){
+                return {
+                    message: 'nothing'
+                }; 
+            },
+            eventHandle: function(){
+                this.setState({message: 'message from component2'});
+            },
+            componentDidMount: function(){
+                component1_node = React.findDOMNode(this);
+                React.findDOMNode(this).addEventListener('myEvent', this.eventHandle);
+            },
+            componentWillUnmount: function(){
+                React.findDOMNode(this).removeEventListener('myEvent', this.eventHandle);
+            },
+            render: function(){
+                return (
+                    <h1>I am component 1, I have receieved {this.state.message}</h1> 
+                );
+            }
+        });
+
+        var Component2 = React.createClass({
+            handleClick: function(){
+                var event_handle = document.createEvent('Events');
+                event_handle.initEvent('myEvent', true, true);
+                component1_node.dispatchEvent(event_handle);
+            },
+            render: function(){
+                return (
+                    <h1 onClick={this.handleClick}>I am component 2, click me to send message</h1>
+                ); 
+            }
+        });
+
+        React.render(<Component1 />, document.querySelector('#component1'));
+        React.render(<Component2 />, document.querySelector('#component2'));
+    </script>
+  </body>
+</html>
