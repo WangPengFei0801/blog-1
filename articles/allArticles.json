@@ -1,16 +1,16 @@
 ﻿[
 	{
-		"title": "搭建使用markdown的博客网站",
-		"tags": ["Markdown", "Handlebars.js", "Showdown.js"],
-		"year": "2015",
-		"month-date": "9-5",
-		"article-text": "articles/article1.md" 
-	},
-	{
 		"title": "React组件间通信",
 		"tags": ["React.js", "父-子组件", "子-父组件", "无关组件"],
 		"year": "2015",
-		"month-date": "8-23",
+		"month-date": "9-5",
 		"article-text": "articles/article2.md" 
+	},
+	{
+		"title": "搭建使用markdown的博客网站",
+		"tags": ["Markdown", "Handlebars.js", "Showdown.js"],
+		"year": "2015",
+		"month-date": "8-23",
+		"article-text": "articles/article1.md" 
 	}
 ]
