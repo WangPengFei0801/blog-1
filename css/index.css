@@ -100,43 +100,44 @@
   width: 100px;
   height: 48px;  
   font: lighter 1.9em/50px "Arial","Microsoft YaHei","黑体","宋体",sans-serif;
+  color: #ffffff;
   text-decoration: none;
-}
-.button1 a{
-  top:-48px;
+
 }
 .button1 a:first-child{
-  color: #ffffff;
-  background-color:#D6BD1B;
-}
-.button1 a:nth-of-type(2){
-  color: #ffffff;
   background-color:#E02228;
 }
-
-.button2 a{
-  top:0px;
+.button1 a:nth-of-type(2){
+  background-color:#D6BD1B;
 }
 .button2 a:first-child{
-  color: #ffffff;
   background-color:#4EAB10;
 }
 .button2 a:nth-of-type(2){
-  color: #ffffff;
   background-color:#C62AE6;
 }
-
-.button3 a{
-  top:-48px;
-}
 .button3 a:first-child{
-  color: #ffffff;
-  background-color:#EC9D48;
-}
-.button3 a:nth-of-type(2){
-  color: #ffffff;
   background-color:#2CB5D7;
 }
+.button3 a:nth-of-type(2){
+  background-color:#EC9D48;
+}
+
+#top_bar div.hover{
+  -webkit-transition: all .4s ease-in-out;
+  -moz-transition: all .4s ease-in-out;
+  -o-transition: all .4s ease-in-out;
+  -ms-transition: all .4s ease-in-out;
+  transition: all .4s ease-in-out;  
+}
+#top_bar div.hover:hover{
+  margin-top: -48px;
+}
+#top_bar div.active:hover{
+  margin-top: 0;
+}
+
+
 /*top_bar中glyphicon图标样式*/
 .icon_add{
   font-size: 33px;
