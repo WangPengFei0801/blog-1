@@ -1,0 +1,112 @@
+#top_bar{
+  width: 100%;
+  height: 60px;
+ /* margin: 0 auto;*/
+  position: relative;
+  background-color: #E7E8E9;
+  z-index: 10;
+ 
+/* 用于颜色的渐变效果*/
+  background: -webkit-gradient(linear,left,right,from(#CDD0EF),color-stop(0.5,#EBEAF5),to(#CDD0EF));
+  background: -moz-linear-gradient(left, #CDD0EF, #EBEAF5, #CDD0EF);
+  background: -o-linear-gradient(left, #CDD0EF, #EBEAF5, #CDD0EF);
+  background: -webkit-linear-gradient(left, #CDD0EF, #EBEAF5 50%, #CDD0EF); 
+
+/*第一个属性值为水平方向，第二个为垂直方向。正值为右下，负值为左上*/
+  -webkit-box-shadow: 0px 3px 18px #888484;
+  -moz-box-shadow: 0px 3px 18px #888484;
+  box-shadow: 0px 3px 18px #888484;
+
+  text-align: center;
+}
+/*用于三个按钮的响应式居中*/
+.adjust{
+  width: 500px;
+  margin: 0 auto;
+  /*text-align: center;*/
+}
+/* >选择第一层子元素*/
+.adjust>span:first-child{
+  /*display: inline-block;*/
+  float: left;
+  position: relative;
+  left: 0px;
+}
+.adjust>span:nth-of-type(2){
+  /*display: inline-block;*/
+  float: left;
+  position: relative;
+  left: 100px;
+
+}
+.adjust>span:nth-of-type(3){
+  /*display: inline-block;*/
+  float: left;
+  position: relative;
+  left: 200px;
+}
+.button1 , .button2 , .button3{
+  float: left;
+  width: 100px;
+  height: 48px;
+  position: relative; top:0px; /*left:30px;*/
+  margin-top: 6px ;
+  text-align: center;
+  overflow: hidden;
+
+  -webkit-border-radius: 100px;
+  -moz-border-radius: 100px;
+  border-radius: 100px;
+}
+.button1 a , .button2 a , .button3 a{
+  display: block;
+  /*block会在a后加上换行符*/
+  margin: 0 auto;
+  position: relative; 
+  width: 100px;
+  height: 48px;  
+  font: lighter 1.9em/50px "Arial","Microsoft YaHei","黑体","宋体",sans-serif;
+  color: #ffffff;
+  text-decoration: none;
+
+}
+.button1 a:first-child{
+  background-color:#E02228;
+}
+.button1 a:nth-of-type(2){
+  background-color:#D6BD1B;
+}
+.button2 a:first-child{
+  background-color:#4EAB10;
+}
+.button2 a:nth-of-type(2){
+  background-color:#C62AE6;
+}
+.button3 a:first-child{
+  background-color:#2CB5D7;
+}
+.button3 a:nth-of-type(2){
+  background-color:#EC9D48;
+}
+
+#top_bar div.hover{
+  -webkit-transition: all .4s ease-in-out;
+  -moz-transition: all .4s ease-in-out;
+  -o-transition: all .4s ease-in-out;
+  -ms-transition: all .4s ease-in-out;
+  transition: all .4s ease-in-out;  
+}
+#top_bar div.hover:hover{
+  margin-top: -48px;
+}
+#top_bar div.active:hover{
+  margin-top: 0;
+}
+
+
+/*top_bar中glyphicon图标样式*/
+.icon_add{
+  font-size: 33px;
+  margin-top: 7px;
+  color: #ffffff;
+}

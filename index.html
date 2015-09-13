@@ -2,11 +2,12 @@
 <html lang="zh-cn">
   <head>
     <meta charset="utf-8">
-    <title>陶博客</title>
+    <title>陶博客 - 首页</title>
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <!-- 引入手写的css -->
-    <link href="css/tao_blog.css" rel="stylesheet">
+    <link href="css/index.css" rel="stylesheet">
+    <link href="css/top_bar.css" rel="stylesheet">
     <!-- highlight.js样式(非必须) -->
     <link href="css/highlight/hybrid.css" rel="stylesheet">
 
@@ -26,26 +27,32 @@
           <div class="adjust">
             <span>
               <div class="button1">
-                <a href="javascript:void(0)">首页</a>
-                <a href="javascript:void(0)">
-                  <span class="glyphicon glyphicon-home icon_add" aria-hidden="true"></span>
-                </a> 
+                <div class="hover active">
+                  <a href="#">首页</a>
+                  <a href="javascript:void(0)">
+                    <span class="glyphicon glyphicon-home icon_add" aria-hidden="true"></span>
+                  </a> 
+                </div>
               </div>  
             </span>
             <span>
               <div class="button2">
-                <a href="javascript:void(0)">
-                  <span class="glyphicon glyphicon-pencil icon_add" aria-hidden="true"></span>
-                </a> 
-                <a href="javascript:void(0)">文章</a>
+                <div class="hover">
+                  <a href="javascript:void(0)">
+                    <span class="glyphicon glyphicon-pencil icon_add" aria-hidden="true"></span>
+                  </a> 
+                  <a href="javascript:void(0)">文章</a>
+                </div>
               </div>  
             </span>
             <span>
               <div class="button3">
-                <a href="javascript:void(0)">作者</a> 
-                <a href="javascript:void(0)">
-                  <span class="glyphicon glyphicon-user icon_add" aria-hidden="true"></span>
-                </a>
+                <div class="hover">
+                  <a href="author.html">
+                    <span class="glyphicon glyphicon-user icon_add" aria-hidden="true"></span>
+                  </a>
+                  <a href="author.html">作者</a> 
+                </div>
               </div>  
             </span>
           </div>

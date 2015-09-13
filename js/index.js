@@ -228,30 +228,30 @@ $('.downward').click(function(){
 // }
 
 
-//1,3切换按钮的动画效果
-$('.button1 , .button3').mouseenter(function(){
-  //获取子代元素"a"
-  var selector = $(this).children("a");
-  //延迟100ms执行，让动画更加流畅
-  tId = setTimeout(function() {
-    // $('.button1 a').animate({"top":"0px"} , "easeInOutCubic");
-    selector.animate({"top":"0px"} , "easeInOutCubic");
-  } , 100);
-}).mouseleave(function(){
-  clearTimeout(tId);
-  // $(this).stop();   //stop方法清空动画队列,动画一半时鼠标移出
-  var selector = $(this).children("a");
-  selector.stop().animate({"top":"-48px"} , "easeInOutCubic");
-});
+// //1,3切换按钮的动画效果
+// $('.button1 , .button3').mouseenter(function(){
+//   //获取子代元素"a"
+//   var selector = $(this).children("a");
+//   //延迟100ms执行，让动画更加流畅
+//   tId = setTimeout(function() {
+//     // $('.button1 a').animate({"top":"0px"} , "easeInOutCubic");
+//     selector.animate({"top":"0px"} , "easeInOutCubic");
+//   } , 100);
+// }).mouseleave(function(){
+//   clearTimeout(tId);
+//   // $(this).stop();   //stop方法清空动画队列,动画一半时鼠标移出
+//   var selector = $(this).children("a");
+//   selector.stop().animate({"top":"-48px"} , "easeInOutCubic");
+// });
 
-//2切换按钮的动画效果
-$('.button2').mouseenter(function(){
-  tId = setTimeout(function() {
-  $('.button2 a').animate({"top":"-48px"} , "easeInOutCubic");
-} , 100);
-}).mouseleave(function(){
-  clearTimeout(tId);
-  $('.button2 a').stop().animate({"top":"0px"} , "easeInOutCubic");
-  // setInterval( function(){alert("fuck");} , 1000);
-});
+// //2切换按钮的动画效果
+// $('.button2').mouseenter(function(){
+//   tId = setTimeout(function() {
+//   $('.button2 a').animate({"top":"-48px"} , "easeInOutCubic");
+// } , 100);
+// }).mouseleave(function(){
+//   clearTimeout(tId);
+//   $('.button2 a').stop().animate({"top":"0px"} , "easeInOutCubic");
+//   // setInterval( function(){alert("fuck");} , 1000);
+// });
 
