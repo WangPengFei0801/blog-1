@@ -1,0 +1,26 @@
+/*除首页外top_bar一直固定*/
+#top_bar{
+	position: fixed;
+	top: 0px;
+}
+
+#main_body #center{
+	width: 60%;	
+	margin: 50px auto;
+}
+
+#main_body #center .top{
+	text-align: center;
+}
+
+#main_body #center .top img{
+	width: 100px;
+	float: right;
+}
+#main_body #center .top h1{
+	font-family: "黑体","Microsoft YaHei","宋体";
+	color: #00F;
+}
+#main_body #center .top h4{
+	font: bold 20px "宋体",sans-serif;
+}
