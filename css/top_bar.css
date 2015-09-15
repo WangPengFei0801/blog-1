@@ -1,3 +1,8 @@
+/*用于当top_bar的position变为fixed后，仍然有固定高度，令下边的div不会高度上升*/
+#top_bar_father{
+  height: 60px;
+}
+
 #top_bar{
   width: 100%;
   height: 60px;

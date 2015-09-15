@@ -1,0 +1,78 @@
+*{
+	box-sizing: content-box;
+}
+body{
+	min-width: 610px;
+}
+/*除首页外top_bar一直固定*/
+#top_bar{
+	position: fixed;
+	top: 0px;
+}
+#main_body #center{
+	width: 60%;	
+	margin: 50px auto 100px auto;
+}
+
+@media screen and (max-width: 1000px){
+	#main_body #center{
+		width: 80%;	
+	}
+}
+@media screen and (max-width: 720px){
+	#main_body #center{
+		width: 95%;	
+	}
+}
+
+#main_body #center .top{
+	text-align: center;
+}
+
+#main_body #center .top img{
+	width: 100px;
+	float: right;
+}
+#main_body #center .top h1{
+	font-family: "黑体","Microsoft YaHei","宋体";
+	color: #00F;
+}
+#main_body #center .top h4{
+	font: bold 20px "宋体",sans-serif;
+}
+
+#center .title{
+	border-bottom: 3px solid #00F;
+}
+#center .title div{
+	width: 110px;
+	background-color: #00f;
+	color: #fff;
+	padding: 3px;
+ 	font: bold 25px "KaiTi","FangSong","黑体","Microsoft YaHei","宋体",sans-serif;
+}
+#center .title.long div{
+	width: 135px;
+}
+#center .title.longlong div{
+	width: 185px;
+}
+#center h4{
+	margin-left: 20px;
+}
+#center .subTitle{
+ 	font: bold 20px "宋体","FangSong","黑体","Microsoft YaHei",sans-serif;
+ 	color: #00F;
+ 	margin: 10px 0 10px 20px;
+}
+
+#center .project_text{
+	font: 17px/25px "宋体","FangSong","黑体","Microsoft YaHei",sans-serif;
+	margin-left: 30px;
+}
+#center ul{
+	margin-top: 10px;
+}
+#center ul li{
+	font: 17px/25px "宋体","FangSong","黑体","Microsoft YaHei",sans-serif;
+}
