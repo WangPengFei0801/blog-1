@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <meta charset="utf-8">
+    <title>陶博客 - 文章</title>
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/articles_catalogue.css" rel="stylesheet">
+    <link href="css/top_bar.css" rel="stylesheet">
+  </head>
+<body>
+  <div id="top_bar_father">
+	<div id="top_bar">
+	  <!-- .adjust用于调整三个按钮位置居中 -->
+	  <div class="adjust">
+	    <span>
+	      <div class="button1">
+	        <div class="hover">
+	          <a href="index.html">
+	            <span class="glyphicon glyphicon-home icon_add" aria-hidden="true"></span>
+	          </a> 
+	          <a href="index.html">首页</a>
+	        </div>
+	      </div>  
+	    </span>
+	    <span>
+	      <div class="button2">
+	        <div class="hover active">
+	          <a href="#">文章</a>
+            <a href="#">
+              <span class="glyphicon glyphicon-pencil icon_add" aria-hidden="true"></span>
+            </a> 
+	        </div>
+	      </div>  
+	    </span>
+	    <span>
+	      <div class="button3">
+	        <div class="hover">
+            <a href="author.html">
+              <span class="glyphicon glyphicon-user icon_add" aria-hidden="true"></span>
+	          <a href="author.html">作者</a> 
+	          </a>
+	        </div>
+	      </div>  
+	    </span>
+	  </div>
+	</div>
+  </div>
+
+  <div id="main">
+    <h2>文章目录：</h2>
+    <!-- 插入内容 -->
+  </div>
+
+
+  <script src="js/jquery.min.js"></script>
+  <script src="js/handlebars.js"></script>
+  <script id="catalogue_template" type="text/x-handlebars-template">
+    {{#each this}}
+      <a class="article">
+        <div class="left">
+          <h3>{{title}}</h3>
+          <div class="tags">
+            {{#each tags}}
+              <span>{{this}}</span>
+            {{/each}}
+          </div>
+        </div>
+        <div class="right">
+          <p>{{year}}-{{month-date}}</p> 
+        </div>
+      </a>
+    {{/each}}
+  </script>
+
+  <script type="text/javascript">
+    $.ajax({
+      url: 'articles/allArticles.json',
+      type: 'GET',
+      dataType: 'json',
+      success: function(data){
+        //handlebars
+        var html = $('#catalogue_template').html();
+        var template = Handlebars.compile(html);
+        $('#main').html($('#main').html() + template(data));
+      },
+      error: function(err){
+        console.log(err);
+        alert('获取信息失败！');
+      }
+    });
+
+  </script>
+</body>
+</html>

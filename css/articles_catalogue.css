@@ -1,0 +1,73 @@
+*{
+	box-sizing: content-box;
+}
+body{
+	min-width: 610px;
+}
+/*除首页外top_bar一直固定*/
+#top_bar{
+	position: fixed;
+	top: 0px;
+}
+
+#main{
+	width: 70%;	
+	margin: 50px auto 100px auto;
+}
+@media screen and (max-width: 1000px){
+	#main{
+		width: 82%;	
+	}
+}
+@media screen and (max-width: 720px){
+	#main{
+		width: 95%;	
+	}
+}
+#main h2{
+	margin: 30px 0;
+}
+a.article{
+	display: block;
+	overflow: hidden;
+	text-decoration: none;
+	cursor: pointer;
+	width: 100%;
+	margin: 20px 0;
+	color: #000;
+	background-color: #FFF8CC;
+}
+a.article:hover{
+	background-color: #FFF39F;
+}
+a.article .left{
+	float: left;
+	width: 80%;
+}
+a.article .right{
+	float: right;
+	width: 20%;
+	height: 100px;
+}
+a.article .right p{
+	font: bold italic 23px/100px "FangSong", "黑体","Microsoft YaHei","宋体",sans-serif;
+}
+
+a.article .left h3{
+	margin: 18px 0 18px 20px;
+	font: bold 26px "FangSong", "黑体","Microsoft YaHei","宋体",sans-serif;
+}
+a.article .left .tags{
+	margin: 10px;
+}
+a.article .left .tags span{
+	padding: 5px 14px;
+	margin: 0 5px;
+	color: #3720BC;
+	font: 17px "宋体","FangSong", "黑体","Microsoft YaHei",sans-serif;
+	background-color: #E0DFE5;
+
+	-webkit-border-radius: 50px;
+	-moz-border-radius: 50px;
+	border-radius: 50px;
+}
