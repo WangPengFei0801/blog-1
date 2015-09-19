@@ -2,7 +2,7 @@
 	box-sizing: content-box;
 }
 body{
-	min-width: 610px;
+	min-width: 650px;
 }
 /*除首页外top_bar一直固定*/
 #top_bar{
@@ -16,10 +16,10 @@ body{
 }
 @media screen and (max-width: 1000px){
 	#main{
-		width: 82%;	
+		width: 83%;	
 	}
 }
-@media screen and (max-width: 720px){
+@media screen and (max-width: 750px){
 	#main{
 		width: 95%;	
 	}
