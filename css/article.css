@@ -1,0 +1,24 @@
+body{
+	min-width: 700px;
+}
+/*除首页外top_bar一直固定*/
+#top_bar{
+	position: fixed;
+	top: 0px;
+}
+#main{
+	width: 75%;	
+	margin: 50px 0 100px 100px;
+}
+
+@media screen and (max-width: 1000px){
+	#main{
+		width: 85%;	
+	}
+}
+@media screen and (max-width: 720px){
+	#main{
+		width: 95%;	
+	}
+}
+
