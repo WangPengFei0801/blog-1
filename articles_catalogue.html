@@ -57,7 +57,7 @@
   <script src="js/handlebars.js"></script>
   <script id="catalogue_template" type="text/x-handlebars-template">
     {{#each this}}
-      <a class="article">
+      <a class="article" href="article.html?articleId={{id}}">
         <div class="left">
           <h3>{{title}}</h3>
           <div class="tags">
@@ -89,7 +89,6 @@
         alert('获取信息失败！');
       }
     });
-
   </script>
 </body>
 </html>

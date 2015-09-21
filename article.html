@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <meta charset="utf-8">
+    <title>陶博客 - 文章</title>
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/top_bar.css" rel="stylesheet">
+    <link href="css/index.css" rel="stylesheet">
+    <link href="css/article.css" rel="stylesheet">
+    <link href="css/highlight/hybrid.css" rel="stylesheet">
+  </head>
+<body>
+  <div id="top_bar_father">
+  <div id="top_bar">
+    <!-- .adjust用于调整三个按钮位置居中 -->
+    <div class="adjust">
+      <span>
+        <div class="button1">
+          <div class="hover">
+            <a href="index.html">
+              <span class="glyphicon glyphicon-home icon_add" aria-hidden="true"></span>
+            </a> 
+            <a href="index.html">首页</a>
+          </div>
+        </div>  
+      </span>
+      <span>
+        <div class="button2">
+          <div class="hover active">
+            <a href="articles_catalogue.html">文章</a>
+            <a href="articles_catalogue.html">
+              <span class="glyphicon glyphicon-pencil icon_add" aria-hidden="true"></span>
+            </a> 
+          </div>
+        </div>  
+      </span>
+      <span>
+        <div class="button3">
+          <div class="hover">
+            <a href="author.html">
+              <span class="glyphicon glyphicon-user icon_add" aria-hidden="true"></span>
+            <a href="author.html">作者</a> 
+            </a>
+          </div>
+        </div>  
+      </span>
+    </div>
+  </div>
+  </div>
+
+  <div id="main">
+    
+  </div> 
+
+  <script id="article_template" type="text/x-handlebars-template">
+    <div class="row">
+      <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3  tag">
+        <div class="tag_content">
+          <img src="image/tag.jpg">
+          <h1>{{year}}</h1>               
+          <h2>{{month-date}}</h2>
+        </div>
+      </div>
+      <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
+        <h2 class="titles"><b>{{title}}</b></h2>
+        <h4 class="article_label">
+          标签：
+          {{#each tags}}
+            <span>{{this}}</span>
+          {{/each}}
+        </h4>
+        <p class="body_text" data-article={{article-text}}>
+        这里是文章内容
+        </p>
+      </div>
+    </div>
+  </script>
+
+  <script src="js/jquery.min.js"></script>
+  <script src="js/handlebars.js"></script>
+  <script src="js/showdown.min.js"></script>
+  <script src="js/highlight.pack.js"></script>
+
+  <script type="text/javascript">
+    var url = window.location.href;
+    var dataStr = url.substr(url.indexOf('?') + 1);
+    var urlId = dataStr.split('=')[1];
+
+    //读取json文件
+    $.ajax({
+      url: 'articles/allArticles.json',
+      type: 'GET',
+      dataType: 'json',
+      error: function(err){
+        alert('Get article failed!');
+        console.log(err); 
+      },
+      success: function(data){
+        var html = $('#article_template').html();
+        var template = Handlebars.compile(html);
+
+        //找到对应文章
+        for (var i = 0; i< data.length; i++){
+          if (data[i]['id'] == urlId){
+            data = data[i];
+            break;
+          }
+        }        
+        $('#main').html(template(data));
+
+        //获取文章文本内容
+        $.ajax({
+          url: data['article-text'],
+          type: 'GET',
+          success: function(textData){
+            //根据文档中markdown生成html(使用Bootstrap所配样式)
+            var converter = new Showdown.converter();
+            var htmlCode = converter.makeHtml(textData);
+            $('.body_text').html(htmlCode);
+
+            //调用highlight.js(非必须)
+            hljs.initHighlightingOnLoad();
+          }.bind(this),
+          error: function(err){
+            alert('Get article text failed!'); 
+            console.log(err);
+          }.bind(this)
+        });
+      }
+    });
+  </script>
+</body>
+</html>
