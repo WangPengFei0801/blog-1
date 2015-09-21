@@ -69,9 +69,11 @@ function top_pic_height(){
   var pic_height = $('#top_pic img').css("height");
   $('#top_pic').css({"height":pic_height});
   //把字符串后面的“px”去掉，如“500px”变成“500”
-  global_pic_height = pic_height.substr(0 , pic_height.length-2);
-  $('#top_pic h1').css({"top":global_pic_height*0.35});  //设置图片中字体高度
-  $('#top_pic h2').css({"top":global_pic_height*0.51});  //设置图片中字体高度
+  global_pic_height = pic_height.substr(0 , pic_height.length-2); 
+  //设置图片中字体高度，并显示
+  $('#top_pic h1').css({"top":global_pic_height*0.35, "display":"block"});
+  //设置图片中字体高度，并显示
+  $('#top_pic h2').css({"top":global_pic_height*0.51, "display":"block"});
 }
 
 //生成右侧目录，并添加文章的标题
