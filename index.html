@@ -131,6 +131,12 @@
       {{/each}}
     </script>
 
+    <!-- 提前调高，尽可能减少屏幕抖动 -->
+    <script type="text/javascript">
+      var pic_height = document.querySelector('#top_pic img').offsetHeight;
+      document.querySelector('#top_pic').style.height = pic_height + 'px';
+    </script>
+
     <script src="js/jquery.min.js"></script>
     <script src="js/handlebars.js"></script>
     <script src="js/showdown.min.js"></script>
