@@ -132,6 +132,14 @@
     </script>
 
     <script src="js/jquery.min.js"></script>
+    <!-- 提前调高，尽可能减少屏幕抖动 -->
+    <script type="text/javascript">
+      $(document).ready(function(){
+        var pic_height = $('#top_pic img').css("height");
+        $('#top_pic').css({"height":pic_height});
+      });
+    </script>
+
     <script src="js/handlebars.js"></script>
     <script src="js/showdown.min.js"></script>
     <!-- 引入highlight.pack.js(非必须) -->
