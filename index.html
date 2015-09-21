@@ -28,7 +28,7 @@
             <span>
               <div class="button1">
                 <div class="hover active">
-                  <a href="#">首页</a>
+                  <a href="javascript:void(0)">首页</a>
                   <a href="javascript:void(0)">
                     <span class="glyphicon glyphicon-home icon_add" aria-hidden="true"></span>
                   </a> 
@@ -104,7 +104,7 @@
 
     <script id="article_template" type="text/x-handlebars-template">
       {{#each this}}
-        <div class="row">
+        <div class="row" data-articleId={{id}}>
           <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3  tag">
             <div class="tag_content">
               <img src="image/tag.jpg">
@@ -121,7 +121,7 @@
               {{/each}}
             </h4>
             <p class="body_text" data-article={{article-text}}>
-            这里是文章3
+            这里是文章内容
             </p>
           </div>
         </div>
@@ -129,9 +129,8 @@
         <!-- 文章之间分割线 -->
         <hr class="divided_line"> 
       {{/each}}
-
-
     </script>
+
     <script src="js/jquery.min.js"></script>
     <script src="js/handlebars.js"></script>
     <script src="js/showdown.min.js"></script>
@@ -139,5 +138,6 @@
     <script src="js/highlight.pack.js"></script>
 
     <script src="js/index.js"></script>
+    </div>
   </body>
 </html>
