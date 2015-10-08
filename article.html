@@ -121,6 +121,9 @@
 
             //调用highlight.js(非必须)
             hljs.initHighlightingOnLoad();
+            $('pre code').each(function() {
+              hljs.highlightBlock(this);
+            });            
           }.bind(this),
           error: function(err){
             alert('Get article text failed!'); 
